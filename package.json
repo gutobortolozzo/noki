@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha --recursive test/"
+    "run": "node --use_strict index.js",
+    "test": "node_modules/.bin/mocha --recursive --use_strict --timeout 5000 test/"
   },
   "author": "Guto Bortolozzo <gutobortolozzo@gmail.com> (https://github.com/gutobortolozzo/)",
   "license": "ISC",
   "dependencies": {
+    "ip": "^1.1.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
     "mocha": "^2.4.5",
     "should": "^8.2.1"
   }
