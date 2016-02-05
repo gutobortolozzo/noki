@@ -6,7 +6,7 @@ describe("Sniffer", () => {
 
     let server;
 
-    it("Find socket running on port 3302", (done) => {
+    it("Find socket running on port 9901", (done) => {
 
         sniffer.sniff({
            port     : 9901,
