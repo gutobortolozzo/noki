@@ -5,8 +5,6 @@ const serializer = require(process.cwd()+'/lib/serializer/objectSerializer');
 
 describe("Client connector", () => {
 
-    let server;
-
     it("Send message to slave", (done) => {
 
         const client = new net.Socket();
