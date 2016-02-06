@@ -44,7 +44,7 @@ describe("Client connector", () => {
         const command = {
             process : (context) => {
                 return {
-                    result : context.fibonacci(45)
+                    result : context.fibonacciPromise(45)
                 };
             }
         };
