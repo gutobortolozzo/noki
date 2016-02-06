@@ -1,5 +1,5 @@
 require('should');
-const serializer  = require(process.cwd()+"/lib/server/serializer/objectSerializer");
+const serializer  = require(process.cwd()+"/lib/serializer/objectSerializer");
 
 describe("Serializer", () => {
 
