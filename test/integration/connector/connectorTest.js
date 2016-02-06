@@ -39,6 +39,22 @@ describe("Client connector", () => {
             });
     });
 
+    it("Send fibonacci of 45 as promise to execute in the remote environment", () => {
+
+        const command = {
+            process : (context) => {
+                return {
+                    result : context.fibonacci(45)
+                };
+            }
+        };
+
+        return consumer.execute(command, port)
+            .then((response) => {
+                response.result.should.be.eql(1836311903);
+            });
+    });
+
     beforeEach(() => {
         executor.listen(port, functionsHelper);
     });
