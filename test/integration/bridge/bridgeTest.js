@@ -10,7 +10,7 @@ describe("Bridge executor", () => {
 
     const bridge = new Bridge({
         port            : 9805,
-        timeout         : 1500,
+        timeout         : 500,
         ipRange         : "127.0.0",
         scanInterval    : 1000
     });
@@ -38,7 +38,7 @@ describe("Bridge executor", () => {
                     response.result.should.be.eql(55);
                 })
                 .then(done)
-        }, 3000);
+        }, 2000);
     });
 
     beforeEach(() => {
