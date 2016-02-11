@@ -11,6 +11,14 @@ module.exports.fibonacciPromise = (limit) => {
     });
 };
 
+module.exports.rejected = () => {
+    return new Promise((_, reject) => {
+        setTimeout(() => {
+            reject(new Error("Test rejection"));
+        }, 500);
+    });
+};
+
 const fibonacci = (limit) => {
     var a = 0, b = 1, f = 1;
 

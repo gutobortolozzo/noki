@@ -18,6 +18,14 @@ describe("Serializer", () => {
         materialized.toString().should.be.eql('John');
     });
 
+    it("Serialize/Deserialize error object", () => {
+
+        const string = serializer.serialize(new Error("Test error"));
+        const materialized = serializer.deserialize(string);
+
+        materialized.message.should.be.eql('Test error');
+    });
+
     it("Serialize/Deserialize two levels object", () => {
 
         const TestComposite = function(age){

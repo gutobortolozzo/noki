@@ -55,6 +55,22 @@ describe("Client connector", () => {
             });
     });
 
+    it("Send to execute promise that will be rejected", () => {
+
+        const command = {
+            process : (context) => {
+                return {
+                    result : context.rejected()
+                };
+            }
+        };
+
+        return consumer.execute(command, port, '127.0.0.1')
+            .catch((error) => {
+                error.message.should.be.eql('Test rejection');
+            });
+    });
+
     beforeEach(() => {
         executor.listen(port, functionsHelper);
     });
