@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "run": "node --use_strict index.js",
-    "test": "node_modules/.bin/mocha --recursive --use_strict --timeout 5000 test/"
+    "test": "node_modules/.bin/mocha --recursive --use_strict --timeout 10000 test/"
   },
   "author": "Guto Bortolozzo <gutobortolozzo@gmail.com> (https://github.com/gutobortolozzo/)",
   "license": "ISC",
