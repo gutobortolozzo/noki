@@ -3,7 +3,7 @@ const net = require('net');
 const executor  = require(process.cwd()+"/lib/client/executor/executor");
 const consumer  = require(process.cwd()+"/lib/server/consumer/consumer");
 const serializer = require(process.cwd()+'/lib/serializer/objectSerializer');
-const functionsHelper = require(process.cwd()+'/test/integration/connector/functionsForRemoteExecution');
+const functionsHelper = require(process.cwd()+'/test/integration/utils/functionsForRemoteExecution');
 
 describe("Client connector", () => {
 
@@ -17,7 +17,7 @@ describe("Client connector", () => {
             }
         };
 
-        return consumer.execute(command, port)
+        return consumer.execute(command, port, '127.0.0.1')
             .then((response) => {
                 response.result.should.be.eql('---10---');
             });
@@ -33,7 +33,7 @@ describe("Client connector", () => {
             }
         };
 
-        return consumer.execute(command, port)
+        return consumer.execute(command, port, '127.0.0.1')
             .then((response) => {
                 response.result.should.be.eql(165580141);
             });
@@ -49,7 +49,7 @@ describe("Client connector", () => {
             }
         };
 
-        return consumer.execute(command, port)
+        return consumer.execute(command, port, '127.0.0.1')
             .then((response) => {
                 response.result.should.be.eql(1836311903);
             });
