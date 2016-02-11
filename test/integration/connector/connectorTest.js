@@ -35,7 +35,7 @@ describe("Client connector", () => {
 
         return consumer.execute(command, port, '127.0.0.1')
             .then((response) => {
-                response.result.should.be.eql(165580141);
+                response.result.should.be.eql(102334155);
             });
     });
 
@@ -51,7 +51,7 @@ describe("Client connector", () => {
 
         return consumer.execute(command, port, '127.0.0.1')
             .then((response) => {
-                response.result.should.be.eql(1836311903);
+                response.result.should.be.eql(1134903170);
             });
     });
 

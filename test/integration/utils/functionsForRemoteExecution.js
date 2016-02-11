@@ -1,22 +1,24 @@
 module.exports.fibonacci = (limit) => {
-    let x =0;
-
-    for(let i = 0, j = 1,k = 0; k < limit; i=j,j=x,k++)
-        x=i+j;
-
-    return x;
+    return fibonacci(limit);
 };
 
 module.exports.fibonacciPromise = (limit) => {
     return new Promise((resolve, _) => {
-
-        let x =0;
-
-        for(let i = 0, j = 1,k = 0; k < limit; i=j,j=x,k++)
-            x=i+j;
-
+        const result = fibonacci(limit);
         setTimeout(() => {
-            resolve(x);
+            resolve(result);
         }, 500);
     });
+};
+
+const fibonacci = (limit) => {
+    var a = 0, b = 1, f = 1;
+
+    for(var i = 2; i <= limit; i++) {
+        f = a + b;
+        a = b;
+        b = f;
+    }
+
+    return f;
 };

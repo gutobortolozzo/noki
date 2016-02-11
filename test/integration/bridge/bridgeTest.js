@@ -27,7 +27,7 @@ describe("Bridge executor", () => {
         setTimeout(() => {
             bridge.execute(command)
                 .then((response) => {
-                    response.result.should.be.eql(89);
+                    response.result.should.be.eql(55);
                 })
                 .then(done)
         }, 3000);
