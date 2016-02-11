@@ -1,4 +1,4 @@
-require('should');
+const should = require('should');
 const net = require('net');
 const Bridge = require(process.cwd()+'/lib/server/bridge/bridge');
 const executor  = require(process.cwd()+"/lib/client/executor/executor");
@@ -13,6 +13,14 @@ describe("Bridge executor", () => {
         timeout         : 1500,
         ipRange         : "127.0.0",
         scanInterval    : 1000
+    });
+
+    it("Try execute null command", () => {
+        should(() => { bridge.execute(); }).throw("Command cannot be null");
+    });
+
+    it("Try execute command without process", () => {
+        should(() => { bridge.execute({}); }).throw("Command must have one function process");
     });
 
     it("Execute distributed fibonacci of 10", (done) => {
