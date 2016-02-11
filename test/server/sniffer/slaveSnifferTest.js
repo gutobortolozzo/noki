@@ -6,10 +6,10 @@ describe("Sniffer", () => {
 
     let server;
 
-    it("Find socket running on port 9901", (done) => {
+    it("Find socket running on port 9902", (done) => {
 
         sniffer.sniff({
-           port     : 9901,
+           port     : 9902,
            timeout  : 2000
         }).then((ips) => {
             ips.length.should.be.eql(1);
@@ -18,7 +18,7 @@ describe("Sniffer", () => {
 
     beforeEach(() => {
         server = net.createServer((socket) => {});
-        server.listen(9901)
+        server.listen(9902)
     });
 
     afterEach(() => {
