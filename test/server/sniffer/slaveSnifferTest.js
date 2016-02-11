@@ -9,8 +9,9 @@ describe("Sniffer", () => {
     it("Find socket running on port 9902", (done) => {
 
         sniffer.sniff({
-           port     : 9902,
-           timeout  : 2000
+            port     : 9902,
+            timeout  : 2000,
+            ipRange  : '127.0.0'
         }).then((ips) => {
             ips.length.should.be.eql(1);
         }).then(done);
