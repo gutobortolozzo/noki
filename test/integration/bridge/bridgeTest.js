@@ -23,6 +23,14 @@ describe("Bridge executor", () => {
         should(() => { bridge.execute({}); }).throw("Command must have one function process");
     });
 
+    it("Try execute command without processors", () => {
+
+        return bridge.execute({ process : () => {} })
+            .catch((error) => {
+                error.message.should.be.eql("No executor available");
+            });
+    });
+
     it("Execute distributed fibonacci of 10", (done) => {
 
         const command = {
