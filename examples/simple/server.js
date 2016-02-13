@@ -18,7 +18,7 @@ const command = {
 const executeCommand = () => {
     server.execute(command)
         .then((response) => {
-            console.log("RESPONSE", response.result);
+            console.log("RESPONSE", response.result, response.executor);
         })
         .catch((err) => {
             console.log("ERROR", err);

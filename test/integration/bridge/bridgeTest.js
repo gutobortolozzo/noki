@@ -41,6 +41,25 @@ describe("Bridge executor", () => {
         }, 2000);
     });
 
+    it("Execute distributed checking remote executor", (done) => {
+
+        const command = {
+            process : (context) => {
+                const result = context.fibonacciPromise(10);
+                return { result : result };
+            }
+        };
+
+        setTimeout(() => {
+            bridge.execute(command)
+                .then((response) => {
+                    response.executor.state.should.be.eql("AVAILABLE");
+                    response.executor.host.should.be.eql("127.0.0.1");
+                })
+                .then(done)
+        }, 2000);
+    });
+
     beforeEach(() => {
         executor.listen(port, functionsHelper);
     });
