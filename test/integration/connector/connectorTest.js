@@ -13,7 +13,7 @@ describe("Client connector", () => {
 
         const command = {
             process : function() {
-                return { result : '---10---' };
+                return '---10---' ;
             }
         };
 
@@ -27,9 +27,7 @@ describe("Client connector", () => {
 
         const command = {
             process : (context) => {
-                return {
-                    result : context.fibonacci(40)
-                };
+                return context.fibonacci(40);
             }
         };
 
@@ -43,9 +41,7 @@ describe("Client connector", () => {
 
         const command = {
             process : (context) => {
-                return {
-                    result : context.fibonacciPromise(45)
-                };
+                return context.fibonacciPromise(45);
             }
         };
 
@@ -59,9 +55,7 @@ describe("Client connector", () => {
 
         const command = {
             process : (context) => {
-                return {
-                    result : context.rejected()
-                };
+                return context.rejected()
             }
         };
 

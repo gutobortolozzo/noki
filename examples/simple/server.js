@@ -9,19 +9,17 @@ const server = new Server({
 
 const command = {
     process : (context) => {
-        return {
-            result : context.readFromFile("/Users/Bortolozzo/Documents/Desenvolvimento/workspace/noki/examples/simple/testFile.txt")
-        }
+        return context.readFromFile("./examples/simple/testFile.txt")
     }
 };
 
 const executeCommand = () => {
     server.execute(command)
         .then((response) => {
-            console.log("RESPONSE", response.result, response.executor);
+            console.log("RESPONSE", response.result, response.executor.host);
         })
         .catch((err) => {
-            console.log("ERROR", err);
+            console.log("ERROR", err.stack);
         });
 };
 

@@ -27,8 +27,7 @@ describe("Bridge executor", () => {
 
         const command = {
             process : (context) => {
-                const result = context.fibonacciPromise(10);
-                return { result : result };
+                return context.fibonacciPromise(10);
             }
         };
 
@@ -45,8 +44,7 @@ describe("Bridge executor", () => {
 
         const command = {
             process : (context) => {
-                const result = context.fibonacciPromise(10);
-                return { result : result };
+                return context.fibonacciPromise(10);
             }
         };
 
