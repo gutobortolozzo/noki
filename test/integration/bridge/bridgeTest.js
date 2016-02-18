@@ -49,10 +49,7 @@ describe("Bridge executor", () => {
 
         return delayPromise(2000)
             .then(() => bridge.execute(command))
-            .then((response) => {
-                response.executor.state.should.be.eql("AVAILABLE");
-                response.executor.host.should.be.eql("127.0.0.1");
-            });
+            .then((response) => response.executor.state.should.be.eql("AVAILABLE"));
     });
 
     const delayPromise = (ms) => {
