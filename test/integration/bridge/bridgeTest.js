@@ -8,12 +8,7 @@ describe("Bridge executor", () => {
 
     const port = 9805;
 
-    const bridge = new Bridge({
-        port            : 9805,
-        timeout         : 500,
-        ipRange         : "127.0.0",
-        scanInterval    : 1000
-    });
+    let bridge;
 
     it("Try execute null command", () => {
         should(() => { bridge.execute(); }).throw("Command cannot be null");
@@ -68,6 +63,13 @@ describe("Bridge executor", () => {
 
     beforeEach(() => {
         executor.listen(port, functionsHelper);
+
+        bridge = new Bridge({
+            port            : port,
+            timeout         : 500,
+            ipRange         : "127.0.0",
+            scanInterval    : 1000
+        });
     });
 
     afterEach(() => {

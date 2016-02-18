@@ -3,7 +3,7 @@ const Server = require('./../../index').Server;
 const server = new Server({
     port            : 13340,
     timeout         : 500,
-    ipRange         : "127.0.0",
+    ipRange         : "192.168.100",
     scanInterval    : 1000
 });
 
