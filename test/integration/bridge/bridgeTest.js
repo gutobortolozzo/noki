@@ -26,7 +26,7 @@ describe("Bridge executor", () => {
             });
     });
 
-    it("Execute distributed fibonacci of 10", (done) => {
+    it("Execute distributed fibonacci of 10", () => {
 
         const command = {
             process : (context) => {
@@ -34,16 +34,12 @@ describe("Bridge executor", () => {
             }
         };
 
-        setTimeout(() => {
-            bridge.execute(command)
-                .then((response) => {
-                    response.result.should.be.eql(55);
-                })
-                .then(done)
-        }, 2000);
+        return delayPromise(2000)
+            .then(() => bridge.execute(command))
+            .then((response) => response.result.should.be.eql(55));
     });
 
-    it("Execute distributed checking remote executor", (done) => {
+    it("Execute distributed checking remote executor", () => {
 
         const command = {
             process : (context) => {
@@ -51,15 +47,17 @@ describe("Bridge executor", () => {
             }
         };
 
-        setTimeout(() => {
-            bridge.execute(command)
-                .then((response) => {
-                    response.executor.state.should.be.eql("AVAILABLE");
-                    response.executor.host.should.be.eql("127.0.0.1");
-                })
-                .then(done)
-        }, 2000);
+        return delayPromise(2000)
+            .then(() => bridge.execute(command))
+            .then((response) => {
+                response.executor.state.should.be.eql("AVAILABLE");
+                response.executor.host.should.be.eql("127.0.0.1");
+            });
     });
+
+    const delayPromise = (ms) => {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    };
 
     beforeEach(() => {
         executor.listen(port, functionsHelper);
