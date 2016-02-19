@@ -4,7 +4,7 @@ const server = new Server({
     port            : 13340,
     timeout         : 500,
     ipRange         : "127.0.0",
-    scanInterval    : 1000
+    scanInterval    : 2000
 });
 
 const command = {
@@ -19,8 +19,8 @@ const executeCommand = () => {
             console.log("RESPONSE", response.result, response.executor.host);
         })
         .catch((err) => {
-            console.log("ERROR", err.stack);
+            console.log("ERROR", err.message);
         });
 };
 
-setInterval(executeCommand, 2000);
+setInterval(executeCommand, 1000);
