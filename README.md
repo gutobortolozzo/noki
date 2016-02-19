@@ -5,8 +5,9 @@
 This project is intent to execute javascript code across several machines in the same network.
 
 It acts as a balancer giving the programs the ability to create custom commands as functions
-and send these commands to be execute in one machine across the cluster. Machines in the cluster
-will automatically be detected just giving the network *CIDR* as a configuration.
+and send these commands to be execute in one machine across the cluster.
+
+Machines in the cluster will automatically be detected just giving the network partial IP (192.168.10) as a configuration.
 
 
 ## Example
@@ -71,7 +72,7 @@ Create a command to call the function *readFromFile* previously declared and use
 
 ```
 
-Example above is available in the directory examples/simple/.
+Example above is available in the directory examples/simple/
 
 Run this example from the project root using these two commands:
  - node --use_strict examples/simple/server.js
