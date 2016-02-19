@@ -77,3 +77,5 @@ Example above is available in the directory examples/simple/
 Run this example from the project root using these two commands:
  - node --use_strict examples/simple/server.js
  - node --use_strict examples/simple/executor.js
+
+More examples can be found on examples directory.
