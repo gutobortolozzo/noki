@@ -10,7 +10,7 @@ will automatically be detected just giving the network *CIDR* as a configuration
 
 ## Example
 
-#### Client example below show one function to read a file and return a promise, client will listen on port 13340.
+Client example below show one function to read a file and return a promise, client will listen on port 13340.
 
 
 ```javascript
@@ -36,8 +36,8 @@ will automatically be detected just giving the network *CIDR* as a configuration
 
 ```
 
-#### Master example below lookup for executors on port 13340 on the same network the master is hosted.
-#### Create a command to call the function *readFromFile* previously declared and use context exactly as it is declared in the client.
+Master example below lookup for executors on port 13340 on the same network the master is hosted.
+Create a command to call the function *readFromFile* previously declared and use context exactly as it is declared in the client.
 
 ```javascript
     const Server = require('noki').Server;
@@ -70,9 +70,6 @@ will automatically be detected just giving the network *CIDR* as a configuration
 ```
 
 Example above is available in the directory examples/simple/
-
-to run this example:
- - Clone project
- - In the project root execute
+Run this example from the project root using these two commands
     - node --use_strict examples/simple/server.js
     - node --use_strict examples/simple/executor.js
