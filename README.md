@@ -7,6 +7,8 @@ This project is intent to execute javascript code across several machines in the
 It acts as a balancer giving the programs the ability to create custom commands as functions
 and send these commands to be execute in one machine across the cluster.
 
+It works by default in a multi master mode giving you the ability to run several servers and executors without extra effort.
+
 Machines in the cluster will automatically be detected just giving the network partial IP (192.168.10) as a configuration.
 
 
