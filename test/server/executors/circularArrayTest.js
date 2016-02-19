@@ -3,7 +3,7 @@ const CircularArray = require(process.cwd()+"/lib/server/executors/circularArray
 
 describe("Circular array", () => {
 
-    let array;
+    var array;
 
     it("Add two elements and rotate array", () => {
 

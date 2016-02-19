@@ -9,7 +9,7 @@ this.currentTimeISO = () => {
 
 if(cluster.isMaster) {
 
-    for(let count in os.cpus())
+    for(var count in os.cpus())
         cluster.fork();
 
 } else if(cluster.isWorker) {

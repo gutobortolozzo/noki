@@ -8,7 +8,7 @@ describe("Bridge executor", () => {
 
     const port = 9805;
 
-    let bridge;
+    var bridge;
 
     it("Try execute null command", () => {
         should(() => { bridge.execute(); }).throw("Command cannot be null");

@@ -20,7 +20,7 @@ Client example below show one function to read a file and return a promise, clie
     const client = require('noki').client;
     const fs = require('fs');
 
-    let counter = 0;
+    var counter = 0;
 
     this.readFromFile = (fileName) => {
         return new Promise((resolve, reject) => {
@@ -75,7 +75,7 @@ Create a command to call the function *readFromFile* previously declared and use
 Example above is available in the directory examples/simple/
 
 Run this example from the project root using these two commands:
- - node --use_strict examples/simple/server.js
- - node --use_strict examples/simple/executor.js
+ - node examples/simple/server.js
+ - node examples/simple/executor.js
 
 More examples can be found on examples directory.

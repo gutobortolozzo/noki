@@ -1,7 +1,7 @@
 const client = require('./../../index').client;
 const fs = require('fs');
 
-let counter = 0;
+var counter = 0;
 
 this.readFromFile = (fileName) => {
     return new Promise((resolve, reject) => {
