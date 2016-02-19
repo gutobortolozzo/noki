@@ -71,5 +71,5 @@ Create a command to call the function *readFromFile* previously declared and use
 
 Example above is available in the directory examples/simple/
 Run this example from the project root using these two commands
-    - node --use_strict examples/simple/server.js
-    - node --use_strict examples/simple/executor.js
+ - node --use_strict examples/simple/server.js
+ - node --use_strict examples/simple/executor.js
