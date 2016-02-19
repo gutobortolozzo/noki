@@ -3,6 +3,7 @@
 ## Task distributor for node.js
 
 This project is intent to execute javascript code across several machines in the same network.
+
 It acts as a balancer giving the programs the ability to create custom commands as functions
 and send these commands to be execute in one machine across the cluster. Machines in the cluster
 will automatically be detected just giving the network *CIDR* as a configuration.
@@ -37,6 +38,7 @@ Client example below show one function to read a file and return a promise, clie
 ```
 
 Master example below lookup for executors on port 13340 on the same network the master is hosted.
+
 Create a command to call the function *readFromFile* previously declared and use context exactly as it is declared in the client.
 
 ```javascript
@@ -69,7 +71,8 @@ Create a command to call the function *readFromFile* previously declared and use
 
 ```
 
-Example above is available in the directory examples/simple/
-Run this example from the project root using these two commands
+Example above is available in the directory examples/simple/.
+
+Run this example from the project root using these two commands:
  - node --use_strict examples/simple/server.js
  - node --use_strict examples/simple/executor.js
