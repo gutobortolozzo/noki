@@ -11,6 +11,9 @@ It works by default in a multi master mode giving you the ability to run several
 
 Machines in the cluster will automatically be detected just giving the network partial IP (192.168.10) as a configuration.
 
+## Install
+
+```npm install noki```
 
 ## Example
 
