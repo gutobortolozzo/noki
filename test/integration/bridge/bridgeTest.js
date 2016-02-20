@@ -52,6 +52,26 @@ describe("Bridge executor", () => {
             .then((response) => response.executor.state.should.be.eql("AVAILABLE"));
     });
 
+    it("Try to execute test without executor listening", () => {
+
+        const command = {
+            process : (context) => {
+                return context.fibonacciPromise(10);
+            }
+        };
+
+        const currentServer = new Bridge({
+            port            : 18281,
+            timeout         : 500,
+            ipRange         : "127.0.0",
+            scanInterval    : 1000
+        });
+
+        return delayPromise(2500)
+            .then(() => currentServer.execute(command))
+            .catch((error) => error.message.should.be.eql("No executor available"));
+    });
+
     const delayPromise = (ms) => {
         return new Promise((resolve) => setTimeout(resolve, ms));
     };
