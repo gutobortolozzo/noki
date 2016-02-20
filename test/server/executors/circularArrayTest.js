@@ -1,9 +1,10 @@
+"use strict";
 const should = require('should');
 const CircularArray = require(process.cwd()+"/lib/server/executors/circularArray");
 
 describe("Circular array", () => {
 
-    var array;
+    let array;
 
     it("Add two elements and rotate array", () => {
 
@@ -17,9 +18,9 @@ describe("Circular array", () => {
         const endInTwo = array.next();
         const endInOneAgain = array.next();
 
-        endInOne.host.should.be.eql("127.0.0.1");
-        endInTwo.host.should.be.eql("127.0.0.2");
-        endInOneAgain.host.should.be.eql("127.0.0.1");
+        endInOne.host.should.be.eql("127.0.0.2");
+        endInTwo.host.should.be.eql("127.0.0.1");
+        endInOneAgain.host.should.be.eql("127.0.0.2");
     });
 
     it("Add repeated element and rotate array", () => {
@@ -52,11 +53,13 @@ describe("Circular array", () => {
             host : '127.0.0.2'
         }]);
 
-        const endInOne = array.next();
-        const endInOneAgain = array.next();
+        const endInTwo = array.next();
+        const endInThree = array.next();
+        const endInTwoAgain = array.next();
 
-        endInOne.host.should.be.eql("127.0.0.3");
-        endInOneAgain.host.should.be.eql("127.0.0.2");
+        endInTwo.host.should.be.eql("127.0.0.2");
+        endInThree.host.should.be.eql("127.0.0.3");
+        endInTwoAgain.host.should.be.eql("127.0.0.2");
         array.size().should.be.eql(2);
     });
 
