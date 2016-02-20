@@ -1,11 +1,11 @@
 {
   "name": "noki",
-  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "run": "node --use_strict index.js",
-    "test": "node_modules/.bin/mocha --recursive --timeout 5000 test/"
+    "test": "node_modules/.bin/mocha --recursive --timeout 5000 test/",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": "Guto Bortolozzo <gutobortolozzo@gmail.com> (https://github.com/gutobortolozzo/)",
   "license": "ISC",
@@ -15,6 +15,11 @@
   },
   "devDependencies": {
     "mocha": "^2.4.5",
-    "should": "^8.2.1"
+    "should": "^8.2.1",
+    "semantic-release": "^4.3.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gutobortolozzo/noki.git"
   }
 }
