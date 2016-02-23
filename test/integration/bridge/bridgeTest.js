@@ -34,7 +34,7 @@ describe("Bridge executor", () => {
             }
         };
 
-        return delayPromise(2500)
+        return delayPromise(1500)
             .then(() => bridge.execute(command))
             .then((response) => response.result.should.be.eql(55));
     });
@@ -47,7 +47,7 @@ describe("Bridge executor", () => {
             }
         };
 
-        return delayPromise(2500)
+        return delayPromise(1500)
             .then(() => bridge.execute(command))
             .then((response) => response.executor.state.should.be.eql("AVAILABLE"));
     });
@@ -64,10 +64,10 @@ describe("Bridge executor", () => {
             port            : 18281,
             timeout         : 500,
             ipRange         : "127.0.0",
-            scanInterval    : 1000
+            scanInterval    : 5000
         });
 
-        return delayPromise(2500)
+        return delayPromise(1500)
             .then(() => currentServer.execute(command))
             .catch((error) => error.message.should.be.eql("No executor available"));
     });
@@ -83,7 +83,7 @@ describe("Bridge executor", () => {
             port            : port,
             timeout         : 500,
             ipRange         : "127.0.0",
-            scanInterval    : 1000
+            scanInterval    : 5000
         });
     });
 
