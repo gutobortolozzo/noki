@@ -14,13 +14,9 @@ describe("Circular array", () => {
             host : '127.0.0.1'
         }]);
 
-        const endInOne = array.next();
-        const endInTwo = array.next();
-        const endInOneAgain = array.next();
-
-        endInOne.host.should.be.eql("127.0.0.2");
-        endInTwo.host.should.be.eql("127.0.0.1");
-        endInOneAgain.host.should.be.eql("127.0.0.2");
+        array.next().host.should.be.eql("127.0.0.2");
+        array.next().host.should.be.eql("127.0.0.1");
+        array.next().host.should.be.eql("127.0.0.2");
     });
 
     it("Add repeated element and rotate array", () => {
@@ -53,13 +49,10 @@ describe("Circular array", () => {
             host : '127.0.0.2'
         }]);
 
-        const endInTwo = array.next();
-        const endInThree = array.next();
-        const endInTwoAgain = array.next();
+        array.next().host.should.be.eql("127.0.0.3");
+        array.next().host.should.be.eql("127.0.0.2");
+        array.next().host.should.be.eql("127.0.0.3");
 
-        endInTwo.host.should.be.eql("127.0.0.2");
-        endInThree.host.should.be.eql("127.0.0.3");
-        endInTwoAgain.host.should.be.eql("127.0.0.2");
         array.size().should.be.eql(2);
     });
 
@@ -89,6 +82,29 @@ describe("Circular array", () => {
         array.size().should.be.eql(0);
 
         should.not.exist(array.next());
+        array.size().should.be.eql(0);
+    });
+
+    it("Add executor -> empty executors -> add executor -> empty executor", () => {
+
+        array.putExecutors([{
+            host : '127.0.0.1'
+        }]);
+
+        array.next().host.should.be.eql('127.0.0.1');
+
+        array.putExecutors([]);
+
+        array.size().should.be.eql(0);
+
+        array.putExecutors([{
+            host : '127.0.0.2'
+        }]);
+
+        array.next().host.should.be.eql("127.0.0.2");
+
+        array.putExecutors([]);
+
         array.size().should.be.eql(0);
     });
 
