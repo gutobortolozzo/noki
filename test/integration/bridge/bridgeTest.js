@@ -39,19 +39,6 @@ describe("Bridge executor", () => {
             .then((response) => response.result.should.be.eql(55));
     });
 
-    it("Execute distributed checking remote executor", () => {
-
-        const command = {
-            process : (context) => {
-                return context.fibonacciPromise(10);
-            }
-        };
-
-        return delayPromise(1500)
-            .then(() => bridge.execute(command))
-            .then((response) => response.executor.state.should.be.eql("AVAILABLE"));
-    });
-
     it("Try to execute test without executor listening", () => {
 
         const command = {

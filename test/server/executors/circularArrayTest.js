@@ -14,9 +14,9 @@ describe("Circular array", () => {
             host : '127.0.0.1'
         }]);
 
-        array.next().host.should.be.eql("127.0.0.2");
         array.next().host.should.be.eql("127.0.0.1");
         array.next().host.should.be.eql("127.0.0.2");
+        array.next().host.should.be.eql("127.0.0.1");
     });
 
     it("Add repeated element and rotate array", () => {
@@ -49,9 +49,9 @@ describe("Circular array", () => {
             host : '127.0.0.2'
         }]);
 
-        array.next().host.should.be.eql("127.0.0.3");
         array.next().host.should.be.eql("127.0.0.2");
         array.next().host.should.be.eql("127.0.0.3");
+        array.next().host.should.be.eql("127.0.0.2");
 
         array.size().should.be.eql(2);
     });
