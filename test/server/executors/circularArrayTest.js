@@ -8,7 +8,7 @@ describe("Circular array", () => {
 
     it("Add two elements and rotate array", () => {
 
-        array.putExecutors([{
+        array.push([{
             host : '127.0.0.2'
         },{
             host : '127.0.0.1'
@@ -21,7 +21,7 @@ describe("Circular array", () => {
 
     it("Add repeated element and rotate array", () => {
 
-        array.putExecutors([{
+        array.push([{
             host : '127.0.0.1'
         },{
             host : '127.0.0.1'
@@ -37,13 +37,13 @@ describe("Circular array", () => {
 
     it("Add intersect element and rotate array", () => {
 
-        array.putExecutors([{
+        array.push([{
             host : '127.0.0.1'
         },{
             host : '127.0.0.2'
         }]);
 
-        array.putExecutors([{
+        array.push([{
             host : '127.0.0.3'
         },{
             host : '127.0.0.2'
@@ -58,15 +58,15 @@ describe("Circular array", () => {
 
     it("Add executor -> empty executors -> add executor", () => {
 
-        array.putExecutors([{
+        array.push([{
             host : '127.0.0.1'
         }]);
 
-        array.putExecutors([]);
+        array.push([]);
 
         array.size().should.be.eql(0);
 
-        array.putExecutors([{
+        array.push([{
             host : '127.0.0.2'
         }]);
 
@@ -78,7 +78,7 @@ describe("Circular array", () => {
 
     it("Empty executors rotation should not produce undefined executor", () => {
 
-        array.putExecutors([]);
+        array.push([]);
         array.size().should.be.eql(0);
 
         should.not.exist(array.next());
@@ -87,23 +87,23 @@ describe("Circular array", () => {
 
     it("Add executor -> empty executors -> add executor -> empty executor", () => {
 
-        array.putExecutors([{
+        array.push([{
             host : '127.0.0.1'
         }]);
 
         array.next().host.should.be.eql('127.0.0.1');
 
-        array.putExecutors([]);
+        array.push([]);
 
         array.size().should.be.eql(0);
 
-        array.putExecutors([{
+        array.push([{
             host : '127.0.0.2'
         }]);
 
         array.next().host.should.be.eql("127.0.0.2");
 
-        array.putExecutors([]);
+        array.push([]);
 
         array.size().should.be.eql(0);
     });

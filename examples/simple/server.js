@@ -20,4 +20,4 @@ const executeCommand = () => {
         });
 };
 
-setInterval(executeCommand, 1000);
+setInterval(executeCommand, 500);
