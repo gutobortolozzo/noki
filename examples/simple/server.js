@@ -1,10 +1,7 @@
 const Server = require('./../../index').Server;
 
 const server = new Server({
-    port            : 13340,
-    timeout         : 500,
-    ipRange         : "127.0.0",
-    scanInterval    : 2000
+    port : 13340
 });
 
 const command = {

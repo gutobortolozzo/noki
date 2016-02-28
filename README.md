@@ -51,7 +51,7 @@ Create a command to call the function *readFromFile* previously declared and use
     const Server = require('noki').Server;
 
     const server = new Server({
-        port            : 13340,
+        port : 13340,
     });
 
     const command = {
