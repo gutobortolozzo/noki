@@ -52,9 +52,6 @@ Create a command to call the function *readFromFile* previously declared and use
 
     const server = new Server({
         port            : 13340,
-        timeout         : 500,
-        ipRange         : "127.0.0",
-        scanInterval    : 1000
     });
 
     const command = {

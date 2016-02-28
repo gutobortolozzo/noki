@@ -1,28 +1,26 @@
-const should = require('should');
+"use strict";
 const net = require('net');
+const should = require('should');
 const Bridge = require(process.cwd()+'/lib/server/bridge/bridge');
 const executor  = require(process.cwd()+"/lib/client/executor/executor");
 const functionsHelper = require(process.cwd()+'/test/integration/utils/functionsForRemoteExecution');
 
 describe("Bridge executor", () => {
 
-    const port = 9805;
-
-    var bridge;
-
     it("Try execute null command", () => {
         should(() => { bridge.execute(); }).throw("Command cannot be null");
     });
 
-    it("Try execute command without process", () => {
+    it("Try execute command without process function", () => {
         should(() => { bridge.execute({}); }).throw("Command must have one function process");
     });
 
-    it("Try execute command without processors", () => {
+    it("Try execute command without processors", (done) => {
 
-        return bridge.execute({ process : () => {} })
+        bridge.execute({ process : () => {} })
             .catch((error) => {
                 error.message.should.be.eql("No executor available");
+                done();
             });
     });
 
@@ -47,6 +45,8 @@ describe("Bridge executor", () => {
             }
         };
 
+        bridge.stopSniffer();
+
         const currentServer = new Bridge({
             port            : 18281,
             timeout         : 500,
@@ -56,15 +56,19 @@ describe("Bridge executor", () => {
 
         return delayPromise(1500)
             .then(() => currentServer.execute(command))
-            .catch((error) => error.message.should.be.eql("No executor available"));
+            .catch((error) => error.message.should.containEql("connect ECONNREFUSED"));
     });
 
     const delayPromise = (ms) => {
         return new Promise((resolve) => setTimeout(resolve, ms));
     };
 
+    const port = 9805;
+    let bridge;
+
     beforeEach(() => {
-        executor.listen(port, functionsHelper);
+
+        if(bridge) bridge.stopSniffer();
 
         bridge = new Bridge({
             port            : port,
@@ -72,9 +76,9 @@ describe("Bridge executor", () => {
             ipRange         : "127.0.0",
             scanInterval    : 5000
         });
+
+        executor.listen(port, functionsHelper);
     });
 
-    afterEach(() => {
-        executor.kill();
-    });
+    afterEach(() => executor.kill());
 });
