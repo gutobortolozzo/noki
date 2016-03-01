@@ -1,7 +1,7 @@
 "use strict";
 require('should');
 const ip = require('ip');
-const register = require(process.cwd()+'/lib/client/executor/selfRegister');
+const register = require(process.cwd()+'/lib/client/register/register');
 const sniffer  = require(process.cwd()+"/lib/server/sniffer/slaveSniffer");
 
 describe("Sniffer", () => {

@@ -2,7 +2,7 @@
 const net = require('net');
 const should = require('should');
 const Bridge = require(process.cwd()+'/lib/server/bridge/bridge');
-const executor  = require(process.cwd()+"/lib/client/executor/executor");
+const executor  = require(process.cwd()+"/lib/client/executor");
 const functionsHelper = require(process.cwd()+'/test/integration/utils/functionsForRemoteExecution');
 
 describe("Bridge executor", () => {

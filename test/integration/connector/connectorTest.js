@@ -1,6 +1,6 @@
 require('should');
 const net = require('net');
-const executor  = require(process.cwd()+"/lib/client/executor/executor");
+const executor  = require(process.cwd()+"/lib/client/executor");
 const consumer  = require(process.cwd()+"/lib/server/consumer/consumer");
 const serializer = require(process.cwd()+'/lib/serializer/objectSerializer');
 const functionsHelper = require(process.cwd()+'/test/integration/utils/functionsForRemoteExecution');
