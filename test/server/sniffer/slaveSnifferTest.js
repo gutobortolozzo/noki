@@ -1,6 +1,7 @@
 "use strict";
 require('should');
 const ip = require('ip');
+const EventEmitter = require("events");
 const register = require(process.cwd()+'/lib/client/register/register');
 const sniffer  = require(process.cwd()+"/lib/server/sniffer/slaveSniffer");
 
@@ -18,6 +19,23 @@ describe("Sniffer", () => {
         emitter.on("message", (executor) => {
             ip.isV4Format(executor.host).should.be.ok();
             executor.port.should.be.eql(9902);
+            done();
+        });
+    });
+
+    it("Wait for information about executor", (done) => {
+
+        const emitter = new EventEmitter();
+
+        sniffer.sniff({
+            port      : 9902,
+            dgramPort : 41234,
+            emitter   : emitter
+        });
+
+        emitter.once("executor-stats", (stats) => {
+            stats.should.have.property("freeMemory");
+            stats.should.have.property("load15");
             done();
         });
     });

@@ -59,9 +59,23 @@ describe("Bridge executor", () => {
             .catch((error) => error.message.should.containEql("connect ECONNREFUSED"));
     });
 
-    const delayPromise = (ms) => {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-    };
+    it("Execute remote command and wait for executor stats", (done) => {
+
+        const command = {
+            process : (context) => {
+                return context.fibonacciPromise(10);
+            }
+        };
+
+        bridge.emitter().once('executor-stats', (stats) => {
+            stats.should.have.property("uptime");
+            stats.should.have.property("totalMemory");
+            stats.should.have.property("totalCpus");
+            done();
+        });
+    });
+
+    const delayPromise = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     const port = 9805;
     let bridge;

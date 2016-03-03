@@ -8,7 +8,7 @@ describe("Stats", () => {
 
         const statistics = stats();
 
-        Object.keys(statistics).length.should.be.eql(8);
+        Object.keys(statistics).length.should.be.eql(9);
 
         statistics.platform.should.be.type('string');
         statistics.totalCpus.should.be.type('number');
@@ -17,5 +17,6 @@ describe("Stats", () => {
         statistics.load1.should.be.type('number');
         statistics.load5.should.be.type('number');
         statistics.load15.should.be.type('number');
+        statistics.hostname.should.be.type('string');
     });
 });
