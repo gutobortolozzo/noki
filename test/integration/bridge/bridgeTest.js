@@ -48,10 +48,7 @@ describe("Bridge executor", () => {
         bridge.stopSniffer();
 
         const currentServer = new Bridge({
-            port            : 18281,
-            timeout         : 500,
-            ipRange         : "127.0.0",
-            scanInterval    : 5000
+            port : 18281
         });
 
         return delayPromise(1500)
@@ -60,12 +57,6 @@ describe("Bridge executor", () => {
     });
 
     it("Execute remote command and wait for executor stats", (done) => {
-
-        const command = {
-            process : (context) => {
-                return context.fibonacciPromise(10);
-            }
-        };
 
         bridge.emitter().once('executor-stats', (stats) => {
             stats.should.have.property("uptime");
@@ -85,10 +76,7 @@ describe("Bridge executor", () => {
         if(bridge) bridge.stopSniffer();
 
         bridge = new Bridge({
-            port            : port,
-            timeout         : 500,
-            ipRange         : "127.0.0",
-            scanInterval    : 5000
+            port : port
         });
 
         executor.listen(port, functionsHelper);
